@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>98AIGC - 人工智能内容生成工具平台 | AI内容创作与生成</title>
+    <meta name="description" content="98AIGC是专业的人工智能内容生成平台，提供AI文本生成、图像创作、视频制作等AIGC工具。免费体验最新AI技术，提升内容创作效率。">
+    <meta name="keywords" content="AIGC, AI内容生成, 人工智能, AI写作, AI绘画, AI视频, 内容创作, 98AIGC">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="98AIGC - 专业人工智能内容生成工具平台">
+    <meta property="og:description" content="体验最前沿的AIGC技术，AI内容生成、智能创作，提升您的工作效率">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://98aigc.com">
+    <meta property="og:image" content="https://98aigc.com/aigc-preview.jpg">
+    <link rel="canonical" href="https://98aigc.com">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+        
+        .aigc-title {
+            font-family: 'JetBrains Mono', monospace;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 3s ease-in-out infinite;
+            background-size: 300% 300%;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .ai-bg {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f0f23 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(118, 75, 162, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(240, 147, 251, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 60% 20%, rgba(79, 172, 254, 0.1) 0%, transparent 50%);
+            animation: ai-pulse 6s ease-in-out infinite;
+        }
+        
+        @keyframes ai-pulse {
+            0%, 100% { opacity: 0.3; }
+            33% { opacity: 0.6; }
+            66% { opacity: 0.4; }
+        }
+        
+        .ai-frame {
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c) 1;
+            border-radius: 16px;
+            box-shadow: 0 0 40px rgba(102, 126, 234, 0.2);
+            transition: all 0.4s ease;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .ai-frame:hover {
+            box-shadow: 0 0 60px rgba(102, 126, 234, 0.4);
+            transform: scale(1.01);
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-ai {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-ai:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+        }
+        
+        .stats-number {
+            font-family: 'JetBrains Mono', monospace;
+            color: #667eea;
+            font-weight: 700;
+        }
+        
+        .typing-effect {
+            border-right: 2px solid #667eea;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: #667eea; }
+        }
+        
+        .ai-icon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            padding: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="ai-bg text-white font-['Inter']">
+    <!-- Header -->
+    <header class="relative z-10 py-6 px-4">
+        <div class="max-w-7xl mx-auto">
+            <nav class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="ai-icon">
+                        <span class="text-2xl">🤖</span>
+                    </div>
+                    <h1 class="text-3xl font-bold aigc-title">98AIGC.com</h1>
+                </div>
+                <button class="btn-ai px-8 py-3 rounded-full text-white font-semibold hover:scale-105 transition-transform">
+                    立即体验
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 py-20 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-7xl md:text-9xl font-black aigc-title mb-8">
+                98AIGC
+            </h1>
+            <p class="text-2xl md:text-3xl text-gray-300 mb-4 typing-effect inline-block">
+                人工智能内容生成的未来已来
+            </p>
+            <p class="text-lg md:text-xl text-gray-400 mb-16 max-w-4xl mx-auto">
+                体验最前沿的AIGC技术，释放创意无限可能。AI写作、绘画、视频制作，一站式智能内容创作平台。
+            </p>
+            
+            <!-- AI Stats -->
+            <div class="flex justify-center space-x-12 mb-16">
+                <div class="text-center">
+                    <div class="stats-number text-4xl mb-2">1000万+</div>
+                    <div class="text-gray-400">用户使用</div>
+                </div>
+                <div class="text-center">
+                    <div class="stats-number text-4xl mb-2">50+</div>
+                    <div class="text-gray-400">AI工具</div>
+                </div>
+                <div class="text-center">
+                    <div class="stats-number text-4xl mb-2">24/7</div>
+                    <div class="text-gray-400">在线服务</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AIGC Platform Section -->
+    <section class="relative z-10 py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="ai-frame bg-black/20 rounded-2xl overflow-hidden">
+                <div class="p-6 bg-gradient-to-r from-indigo-600/20 to-purple-600/20">
+                    <h3 class="text-xl font-semibold text-center text-white mb-2">🚀 AIGC内容生成平台</h3>
+                    <p class="text-gray-300 text-center text-sm">最新AI技术驱动的智能内容创作工具</p>
+                </div>
+                <iframe 
+                    src="https://www.aigc.cn/#term-2494?ref=www.bidianer.com"
+                    width="100%" 
+                    height="700"
+                    frameborder="0"
+                    allowfullscreen
+                    title="AIGC - 人工智能内容生成平台"
+                    loading="lazy"
+                    sandbox="allow-scripts allow-same-origin allow-popups allow-forms">
+                </iframe>
+            </div>
+            
+            <div class="text-center mt-10">
+                <button class="btn-ai px-10 py-4 rounded-full text-white font-bold text-lg hover:scale-105 transition-transform">
+                    🤖 开始使用 AIGC 工具
+                </button>
+                <p class="text-gray-400 mt-4">无需下载 • 即开即用 • 完全免费体验</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About AIGC -->
+    <section class="relative z-10 py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-5xl font-bold aigc-title mb-8">关于 AIGC</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        AIGC（AI-Generated Content）代表人工智能生成内容的新时代。98AIGC.com 
+                        汇聚了最前沿的AI技术，为创作者、企业和个人提供强大的内容生成工具。
+                    </p>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                        从智能写作到AI绘画，从视频生成到语音合成，我们的平台涵盖了内容创作的各个领域，
+                        让每个人都能轻松驾驭人工智能的创造力。
+                    </p>
+                    <div class="flex space-x-4">
+                        <button class="btn-ai px-6 py-3 rounded-lg text-white font-semibold">
+                            了解更多
+                        </button>
+                        <button class="border border-purple-500 px-6 py-3 rounded-lg text-purple-400 hover:bg-purple-500/10 transition-colors">
+                            观看演示
+                        </button>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="feature-card p-8 rounded-2xl">
+                        <h3 class="text-2xl font-semibold text-indigo-400 mb-4">🎨 AI创意生成</h3>
+                        <p class="text-gray-300">文本、图像、视频等多媒体内容智能生成</p>
+                    </div>
+                    <div class="feature-card p-8 rounded-2xl">
+                        <h3 class="text-2xl font-semibold text-purple-400 mb-4">⚡ 高效便捷</h3>
+                        <p class="text-gray-300">几秒钟内完成复杂内容创作，提升工作效率</p>
+                    </div>
+                    <div class="feature-card p-8 rounded-2xl">
+                        <h3 class="text-2xl font-semibold text-pink-400 mb-4">🎯 个性定制</h3>
+                        <p class="text-gray-300">根据需求定制AI模型，满足专业创作要求</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AIGC Features -->
+    <section class="relative z-10 py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl font-bold aigc-title text-center mb-16">AIGC 核心功能</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="feature-card p-8 rounded-2xl text-center">
+                    <div class="text-6xl mb-6">✍️</div>
+                    <h3 class="text-xl font-semibold mb-4">AI智能写作</h3>
+                    <p class="text-gray-300">文章、报告、创意文案自动生成，告别写作困扰</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl text-center">
+                    <div class="text-6xl mb-6">🎨</div>
+                    <h3 class="text-xl font-semibold mb-4">AI艺术绘画</h3>
+                    <p class="text-gray-300">文字描述转图像，创造独特的艺术作品</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl text-center">
+                    <div class="text-6xl mb-6">🎬</div>
+                    <h3 class="text-xl font-semibold mb-4">AI视频制作</h3>
+                    <p class="text-gray-300">智能视频剪辑、特效添加、内容生成</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl text-center">
+                    <div class="text-6xl mb-6">🎵</div>
+                    <h3 class="text-xl font-semibold mb-4">AI音频合成</h3>
+                    <p class="text-gray-300">语音合成、音乐创作、音效生成</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use AIGC -->
+    <section class="relative z-10 py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-5xl font-bold aigc-title text-center mb-16">如何使用 AIGC</h2>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="feature-card p-8 rounded-2xl text-center">
+                    <div class="ai-icon w-16 h-16 mx-auto mb-6">
+                        <span class="text-2xl">1️⃣</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-indigo-400">选择AI工具</h3>
+                    <p class="text-gray-300">根据创作需求选择合适的AI工具，如文本生成、图像创作等</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl text-center">
+                    <div class="ai-icon w-16 h-16 mx-auto mb-6">
+                        <span class="text-2xl">2️⃣</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-purple-400">输入创作指令</h3>
+                    <p class="text-gray-300">详细描述您的创作需求，AI将理解并执行您的指令</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl text-center">
+                    <div class="ai-icon w-16 h-16 mx-auto mb-6">
+                        <span class="text-2xl">3️⃣</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-pink-400">获得AI作品</h3>
+                    <p class="text-gray-300">几秒内获得高质量的AI生成内容，支持进一步编辑优化</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AIGC Advantages -->
+    <section class="relative z-10 py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-5xl font-bold aigc-title text-center mb-16">为什么选择 98AIGC</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="feature-card p-10 rounded-2xl">
+                    <h3 class="text-2xl font-semibold mb-6 text-indigo-400">🚀 技术领先</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        采用最新的GPT、Stable Diffusion等前沿AI模型，确保生成内容的质量和创新性。
+                        持续更新技术栈，始终保持行业领先地位。
+                    </p>
+                </div>
+                <div class="feature-card p-10 rounded-2xl">
+                    <h3 class="text-2xl font-semibold mb-6 text-purple-400">💡 简单易用</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        直观的用户界面设计，无需专业技术背景即可使用。丰富的模板和预设，
+                        让AI内容生成变得简单高效。
+                    </p>
+                </div>
+                <div class="feature-card p-10 rounded-2xl">
+                    <h3 class="text-2xl font-semibold mb-6 text-pink-400">🔒 安全可靠</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        严格的数据隐私保护措施，用户内容加密存储。符合国际数据安全标准，
+                        让您安心使用AI创作工具。
+                    </p>
+                </div>
+                <div class="feature-card p-10 rounded-2xl">
+                    <h3 class="text-2xl font-semibold mb-6 text-green-400">🎯 专业服务</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        24/7专业技术支持，丰富的学习资源和社区交流。为企业用户提供定制化
+                        AI解决方案和专属服务。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-16 px-4 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold aigc-title mb-6">98AIGC.com</h2>
+                <p class="text-gray-400 text-lg mb-8">引领AIGC时代，释放创意无限可能</p>
+                
+                <div class="flex justify-center space-x-8 mb-10">
+                    <a href="#platform" class="text-gray-300 hover:text-white transition-colors text-lg">AI平台</a>
+                    <a href="#features" class="text-gray-300 hover:text-white transition-colors text-lg">功能特色</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors text-lg">关于我们</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition-colors text-lg">联系我们</a>
+                </div>
+                
+                <div class="border-t border-gray-800 pt-8">
+                    <p class="text-gray-500">© 2025 98AIGC.com - 专业AIGC人工智能内容生成平台 | AI内容创作领域的创新者</p>
+                    <p class="text-gray-600 text-sm mt-2">人工智能 · 内容生成 · 创意无限 · 未来已来</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动导航
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 体验按钮功能
+        document.querySelectorAll('.btn-ai').forEach(button => {
+            button.addEventListener('click', function() {
+                const iframe = document.querySelector('iframe');
+                if (iframe) {
+                    iframe.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
+            });
+        });
+
+        // iframe 加载优化
+        const iframe = document.querySelector('iframe');
+        if (iframe) {
+            iframe.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+        }
+
+        // 统计数字动画效果
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current).toLocaleString() + '+';
+            }, 20);
+        }
+
+        // 页面加载时启动动画
+        window.addEventListener('load', () => {
+            const counters = document.querySelectorAll('.stats-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const text = entry.target.textContent;
+                        const number = parseInt(text.replace(/[^0-9]/g, ''));
+                        animateCounter(entry.target, number);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            counters.forEach(counter => observer.observe(counter));
+        });
+    </script>
+</body>
+</html>
