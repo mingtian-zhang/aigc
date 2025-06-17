@@ -1,184 +1,261 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>98AIGC - 人工智能内容生成工具平台 | AI内容创作与生成</title>
-    <meta name="description" content="98AIGC是专业的人工智能内容生成平台，提供AI文本生成、图像创作、视频制作等AIGC工具。免费体验最新AI技术，提升内容创作效率。">
-    <meta name="keywords" content="AIGC, AI内容生成, 人工智能, AI写作, AI绘画, AI视频, 内容创作, 98AIGC">
+    <title>98AIGC - Premier AI-Generated Content Platform | Advanced AIGC Tools</title>
+    <meta name="description" content="Discover the future of content creation with 98AIGC. Access cutting-edge AI tools for writing, design, video production, and more. Transform your creative workflow with generative AI technology.">
+    <meta name="keywords" content="AIGC, AI-generated content, artificial intelligence, AI tools, generative AI, content creation, AI writing, AI design, machine learning">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="98AIGC - 专业人工智能内容生成工具平台">
-    <meta property="og:description" content="体验最前沿的AIGC技术，AI内容生成、智能创作，提升您的工作效率">
+    <meta name="author" content="98AIGC">
+    <meta property="og:title" content="98AIGC - Premier AI-Generated Content Platform">
+    <meta property="og:description" content="Transform your creative workflow with advanced AIGC tools. Experience the future of AI-powered content generation.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://98aigc.com">
-    <meta property="og:image" content="https://98aigc.com/aigc-preview.jpg">
+    <meta property="og:image" content="https://98aigc.com/og-image.jpg">
+    <meta property="og:site_name" content="98AIGC">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="98AIGC - Premier AI-Generated Content Platform">
+    <meta name="twitter:description" content="Transform your creative workflow with advanced AIGC tools">
+    <meta name="twitter:image" content="https://98aigc.com/twitter-image.jpg">
     <link rel="canonical" href="https://98aigc.com">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;800;900&family=SF+Pro+Text:wght@300;400;500;600&display=swap');
         
-        .aigc-title {
-            font-family: 'JetBrains Mono', monospace;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+        * {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .sf-text {
+            font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .apple-gradient {
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 25%, #AF52DE 50%, #FF2D92 75%, #FF3B30 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: gradient-shift 3s ease-in-out infinite;
-            background-size: 300% 300%;
+            animation: gradient-flow 8s ease-in-out infinite;
+            background-size: 400% 400%;
         }
         
-        @keyframes gradient-shift {
+        @keyframes gradient-flow {
             0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            25% { background-position: 100% 0%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
         }
         
-        .ai-bg {
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f0f23 100%);
+        .apple-bg {
+            background: linear-gradient(180deg, #F2F2F7 0%, #FFFFFF 50%, #F2F2F7 100%);
+            min-height: 100vh;
+        }
+        
+        .apple-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .apple-card:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+        }
+        
+        .apple-btn {
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 16px rgba(0, 122, 255, 0.3);
+        }
+        
+        .apple-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 122, 255, 0.4);
+        }
+        
+        .apple-btn:active {
+            transform: translateY(0);
+        }
+        
+        .apple-section {
+            padding: 80px 0;
+        }
+        
+        .apple-hero {
+            background: linear-gradient(135deg, #F2F2F7 0%, #E5E5EA 100%);
             position: relative;
             overflow: hidden;
         }
         
-        .ai-bg::before {
+        .apple-hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(118, 75, 162, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(240, 147, 251, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 60% 20%, rgba(79, 172, 254, 0.1) 0%, transparent 50%);
-            animation: ai-pulse 6s ease-in-out infinite;
+            background: radial-gradient(circle at 30% 40%, rgba(0, 122, 255, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 60%, rgba(88, 86, 214, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 20%, rgba(175, 82, 222, 0.05) 0%, transparent 50%);
         }
         
-        @keyframes ai-pulse {
-            0%, 100% { opacity: 0.3; }
-            33% { opacity: 0.6; }
-            66% { opacity: 0.4; }
-        }
-        
-        .ai-frame {
-            border: 2px solid;
-            border-image: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c) 1;
-            border-radius: 16px;
-            box-shadow: 0 0 40px rgba(102, 126, 234, 0.2);
-            transition: all 0.4s ease;
-            background: rgba(0, 0, 0, 0.3);
-        }
-        
-        .ai-frame:hover {
-            box-shadow: 0 0 60px rgba(102, 126, 234, 0.4);
-            transform: scale(1.01);
-        }
-        
-        .feature-card {
-            background: rgba(255, 255, 255, 0.03);
+        .glass-frame {
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
             transition: all 0.3s ease;
         }
         
-        .feature-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        .glass-frame:hover {
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+            transform: scale(1.02);
         }
         
-        .btn-ai {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
-            transition: all 0.3s ease;
+        .apple-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
         }
         
-        .btn-ai:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
         }
         
         .stats-number {
-            font-family: 'JetBrains Mono', monospace;
-            color: #667eea;
-            font-weight: 700;
+            font-size: 48px;
+            font-weight: 800;
+            color: #007AFF;
+            line-height: 1;
         }
         
-        .typing-effect {
-            border-right: 2px solid #667eea;
-            animation: blink 1s infinite;
+        @media (max-width: 768px) {
+            .apple-section {
+                padding: 60px 0;
+            }
+            
+            .stats-number {
+                font-size: 36px;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
-        @keyframes blink {
-            0%, 50% { border-color: transparent; }
-            51%, 100% { border-color: #667eea; }
+        .nav-blur {
+            background: rgba(248, 248, 248, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
         
-        .ai-icon {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 12px;
-            padding: 12px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+        .text-gradient {
+            background: linear-gradient(135deg, #1D1D1F, #86868B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
     </style>
 </head>
-<body class="ai-bg text-white font-['Inter']">
-    <!-- Header -->
-    <header class="relative z-10 py-6 px-4">
-        <div class="max-w-7xl mx-auto">
-            <nav class="flex items-center justify-between">
+<body class="apple-bg">
+    <!-- Navigation -->
+    <nav class="nav-blur fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
                 <div class="flex items-center space-x-3">
-                    <div class="ai-icon">
-                        <span class="text-2xl">🤖</span>
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">AI</span>
                     </div>
-                    <h1 class="text-3xl font-bold aigc-title">98AIGC.com</h1>
+                    <span class="text-2xl font-bold text-gray-900">98AIGC</span>
                 </div>
-                <button class="btn-ai px-8 py-3 rounded-full text-white font-semibold hover:scale-105 transition-transform">
-                    立即体验
-                </button>
-            </nav>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#platform" class="text-gray-600 hover:text-gray-900 transition-colors">Platform</a>
+                    <a href="#features" class="text-gray-600 hover:text-gray-900 transition-colors">Features</a>
+                    <a href="#about" class="text-gray-600 hover:text-gray-900 transition-colors">About</a>
+                    <button class="apple-btn">Get Started</button>
+                </div>
+                <button class="md:hidden apple-btn px-4 py-2">Menu</button>
+            </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="relative z-10 py-20 px-4">
-        <div class="max-w-7xl mx-auto text-center">
-            <h1 class="text-7xl md:text-9xl font-black aigc-title mb-8">
-                98AIGC
+    <section class="apple-hero apple-section pt-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h1 class="text-6xl md:text-8xl font-black apple-gradient mb-8 leading-tight">
+                AIGC Revolution
             </h1>
-            <p class="text-2xl md:text-3xl text-gray-300 mb-4 typing-effect inline-block">
-                人工智能内容生成的未来已来
+            <p class="text-2xl md:text-3xl text-gray-700 mb-6 font-medium">
+                Unleash the power of AI-generated content
             </p>
-            <p class="text-lg md:text-xl text-gray-400 mb-16 max-w-4xl mx-auto">
-                体验最前沿的AIGC技术，释放创意无限可能。AI写作、绘画、视频制作，一站式智能内容创作平台。
+            <p class="text-lg md:text-xl text-gray-600 mb-12 max-w-4xl mx-auto sf-text">
+                Experience the future of content creation with our comprehensive AIGC platform. 
+                Transform ideas into reality with cutting-edge artificial intelligence tools.
             </p>
             
-            <!-- AI Stats -->
-            <div class="flex justify-center space-x-12 mb-16">
+            <!-- Statistics -->
+            <div class="flex justify-center space-x-16 mb-12">
                 <div class="text-center">
-                    <div class="stats-number text-4xl mb-2">1000万+</div>
-                    <div class="text-gray-400">用户使用</div>
+                    <div class="stats-number">10M+</div>
+                    <div class="text-gray-600 font-medium">Active Users</div>
                 </div>
                 <div class="text-center">
-                    <div class="stats-number text-4xl mb-2">50+</div>
-                    <div class="text-gray-400">AI工具</div>
+                    <div class="stats-number">100+</div>
+                    <div class="text-gray-600 font-medium">AI Tools</div>
                 </div>
                 <div class="text-center">
-                    <div class="stats-number text-4xl mb-2">24/7</div>
-                    <div class="text-gray-400">在线服务</div>
+                    <div class="stats-number">24/7</div>
+                    <div class="text-gray-600 font-medium">Availability</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- AIGC Platform Section -->
-    <section class="relative z-10 py-16 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="ai-frame bg-black/20 rounded-2xl overflow-hidden">
-                <div class="p-6 bg-gradient-to-r from-indigo-600/20 to-purple-600/20">
-                    <h3 class="text-xl font-semibold text-center text-white mb-2">🚀 AIGC内容生成平台</h3>
-                    <p class="text-gray-300 text-center text-sm">最新AI技术驱动的智能内容创作工具</p>
+    <!-- AIGC Platform -->
+    <section id="platform" class="apple-section">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Advanced AIGC Platform
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto sf-text">
+                    Access the most comprehensive collection of AI-powered content generation tools 
+                    in one unified platform.
+                </p>
+            </div>
+            
+            <div class="glass-frame">
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6">
+                    <div class="flex items-center justify-center space-x-3 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white text-sm font-bold">AI</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">AIGC Navigation Hub</h3>
+                    </div>
+                    <p class="text-gray-600 text-center sf-text">
+                        Discover and access premium AI tools for every creative need
+                    </p>
                 </div>
                 <iframe 
                     src="https://www.aigc.cn/#term-2494?ref=www.bidianer.com"
@@ -186,152 +263,207 @@
                     height="700"
                     frameborder="0"
                     allowfullscreen
-                    title="AIGC - 人工智能内容生成平台"
+                    title="AIGC Platform - AI-Generated Content Tools"
                     loading="lazy"
-                    sandbox="allow-scripts allow-same-origin allow-popups allow-forms">
+                    class="w-full">
                 </iframe>
             </div>
             
             <div class="text-center mt-10">
-                <button class="btn-ai px-10 py-4 rounded-full text-white font-bold text-lg hover:scale-105 transition-transform">
-                    🤖 开始使用 AIGC 工具
+                <button class="apple-btn text-lg px-8 py-4">
+                    🚀 Explore AIGC Tools
                 </button>
-                <p class="text-gray-400 mt-4">无需下载 • 即开即用 • 完全免费体验</p>
+                <p class="text-gray-500 mt-4 sf-text">No installation required • Instant access • Free trial available</p>
             </div>
         </div>
     </section>
 
     <!-- About AIGC -->
-    <section class="relative z-10 py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
+    <section id="about" class="apple-section bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <h2 class="text-5xl font-bold aigc-title mb-8">关于 AIGC</h2>
-                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                        AIGC（AI-Generated Content）代表人工智能生成内容的新时代。98AIGC.com 
-                        汇聚了最前沿的AI技术，为创作者、企业和个人提供强大的内容生成工具。
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                        What is AIGC?
+                    </h2>
+                    <p class="text-lg text-gray-700 mb-6 sf-text leading-relaxed">
+                        AIGC (AI-Generated Content) represents the revolutionary intersection of artificial 
+                        intelligence and creative content production. Our platform harnesses the power of 
+                        advanced machine learning models to generate high-quality content across multiple formats.
                     </p>
-                    <p class="text-gray-300 text-lg leading-relaxed mb-8">
-                        从智能写作到AI绘画，从视频生成到语音合成，我们的平台涵盖了内容创作的各个领域，
-                        让每个人都能轻松驾驭人工智能的创造力。
+                    <p class="text-lg text-gray-700 mb-8 sf-text leading-relaxed">
+                        From intelligent writing assistance to sophisticated image generation, from video 
+                        production to audio synthesis, 98AIGC provides creators, businesses, and individuals 
+                        with unprecedented creative capabilities.
                     </p>
                     <div class="flex space-x-4">
-                        <button class="btn-ai px-6 py-3 rounded-lg text-white font-semibold">
-                            了解更多
-                        </button>
-                        <button class="border border-purple-500 px-6 py-3 rounded-lg text-purple-400 hover:bg-purple-500/10 transition-colors">
-                            观看演示
+                        <button class="apple-btn">Learn More</button>
+                        <button class="border-2 border-blue-500 text-blue-500 px-6 py-3 rounded-xl font-semibold hover:bg-blue-50 transition-colors">
+                            Watch Demo
                         </button>
                     </div>
                 </div>
                 <div class="space-y-6">
-                    <div class="feature-card p-8 rounded-2xl">
-                        <h3 class="text-2xl font-semibold text-indigo-400 mb-4">🎨 AI创意生成</h3>
-                        <p class="text-gray-300">文本、图像、视频等多媒体内容智能生成</p>
+                    <div class="apple-card p-8 rounded-2xl">
+                        <div class="apple-icon text-white">🎨</div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Creative AI</h3>
+                        <p class="text-gray-600 sf-text">Advanced algorithms that understand context and generate creative content with human-like quality.</p>
                     </div>
-                    <div class="feature-card p-8 rounded-2xl">
-                        <h3 class="text-2xl font-semibold text-purple-400 mb-4">⚡ 高效便捷</h3>
-                        <p class="text-gray-300">几秒钟内完成复杂内容创作，提升工作效率</p>
+                    <div class="apple-card p-8 rounded-2xl">
+                        <div class="apple-icon text-white">⚡</div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Lightning Fast</h3>
+                        <p class="text-gray-600 sf-text">Generate professional-quality content in seconds, not hours. Boost your productivity exponentially.</p>
                     </div>
-                    <div class="feature-card p-8 rounded-2xl">
-                        <h3 class="text-2xl font-semibold text-pink-400 mb-4">🎯 个性定制</h3>
-                        <p class="text-gray-300">根据需求定制AI模型，满足专业创作要求</p>
+                    <div class="apple-card p-8 rounded-2xl">
+                        <div class="apple-icon text-white">🎯</div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Precision Control</h3>
+                        <p class="text-gray-600 sf-text">Fine-tune every aspect of generated content with intuitive controls and customization options.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- AIGC Features -->
-    <section class="relative z-10 py-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-5xl font-bold aigc-title text-center mb-16">AIGC 核心功能</h2>
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="feature-card p-8 rounded-2xl text-center">
+    <!-- Features -->
+    <section id="features" class="apple-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Comprehensive AIGC Solutions
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto sf-text">
+                    Everything you need to create, enhance, and optimize content with artificial intelligence
+                </p>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="apple-card p-8 rounded-2xl text-center">
                     <div class="text-6xl mb-6">✍️</div>
-                    <h3 class="text-xl font-semibold mb-4">AI智能写作</h3>
-                    <p class="text-gray-300">文章、报告、创意文案自动生成，告别写作困扰</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">AI Writing</h3>
+                    <p class="text-gray-600 sf-text">Generate articles, blogs, marketing copy, and creative content with advanced language models.</p>
                 </div>
-                <div class="feature-card p-8 rounded-2xl text-center">
+                
+                <div class="apple-card p-8 rounded-2xl text-center">
                     <div class="text-6xl mb-6">🎨</div>
-                    <h3 class="text-xl font-semibold mb-4">AI艺术绘画</h3>
-                    <p class="text-gray-300">文字描述转图像，创造独特的艺术作品</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Image Generation</h3>
+                    <p class="text-gray-600 sf-text">Create stunning visuals, artwork, and designs from simple text descriptions.</p>
                 </div>
-                <div class="feature-card p-8 rounded-2xl text-center">
+                
+                <div class="apple-card p-8 rounded-2xl text-center">
                     <div class="text-6xl mb-6">🎬</div>
-                    <h3 class="text-xl font-semibold mb-4">AI视频制作</h3>
-                    <p class="text-gray-300">智能视频剪辑、特效添加、内容生成</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Video Production</h3>
+                    <p class="text-gray-600 sf-text">Produce professional videos with AI-powered editing, effects, and content generation.</p>
                 </div>
-                <div class="feature-card p-8 rounded-2xl text-center">
+                
+                <div class="apple-card p-8 rounded-2xl text-center">
                     <div class="text-6xl mb-6">🎵</div>
-                    <h3 class="text-xl font-semibold mb-4">AI音频合成</h3>
-                    <p class="text-gray-300">语音合成、音乐创作、音效生成</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Audio Synthesis</h3>
+                    <p class="text-gray-600 sf-text">Generate music, voiceovers, and sound effects with cutting-edge audio AI.</p>
+                </div>
+                
+                <div class="apple-card p-8 rounded-2xl text-center">
+                    <div class="text-6xl mb-6">💼</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Business Tools</h3>
+                    <p class="text-gray-600 sf-text">Streamline workflows with AI-powered presentations, reports, and documentation.</p>
+                </div>
+                
+                <div class="apple-card p-8 rounded-2xl text-center">
+                    <div class="text-6xl mb-6">🤖</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Smart Assistants</h3>
+                    <p class="text-gray-600 sf-text">Interact with intelligent AI chatbots and virtual assistants for various tasks.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How to Use AIGC -->
-    <section class="relative z-10 py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-5xl font-bold aigc-title text-center mb-16">如何使用 AIGC</h2>
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="feature-card p-8 rounded-2xl text-center">
-                    <div class="ai-icon w-16 h-16 mx-auto mb-6">
-                        <span class="text-2xl">1️⃣</span>
+    <!-- How It Works -->
+    <section class="apple-section bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    How AIGC Works
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto sf-text">
+                    Simple, intuitive, and powerful. Create professional content in three easy steps.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="text-center">
+                    <div class="apple-icon mx-auto text-white mb-6">
+                        <span class="text-2xl font-bold">1</span>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4 text-indigo-400">选择AI工具</h3>
-                    <p class="text-gray-300">根据创作需求选择合适的AI工具，如文本生成、图像创作等</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Choose Your Tool</h3>
+                    <p class="text-gray-600 sf-text text-lg">
+                        Select from our extensive library of AI-powered content generation tools based on your specific needs.
+                    </p>
                 </div>
-                <div class="feature-card p-8 rounded-2xl text-center">
-                    <div class="ai-icon w-16 h-16 mx-auto mb-6">
-                        <span class="text-2xl">2️⃣</span>
+                
+                <div class="text-center">
+                    <div class="apple-icon mx-auto text-white mb-6">
+                        <span class="text-2xl font-bold">2</span>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4 text-purple-400">输入创作指令</h3>
-                    <p class="text-gray-300">详细描述您的创作需求，AI将理解并执行您的指令</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Input Your Ideas</h3>
+                    <p class="text-gray-600 sf-text text-lg">
+                        Provide prompts, descriptions, or parameters to guide the AI in creating content that matches your vision.
+                    </p>
                 </div>
-                <div class="feature-card p-8 rounded-2xl text-center">
-                    <div class="ai-icon w-16 h-16 mx-auto mb-6">
-                        <span class="text-2xl">3️⃣</span>
+                
+                <div class="text-center">
+                    <div class="apple-icon mx-auto text-white mb-6">
+                        <span class="text-2xl font-bold">3</span>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4 text-pink-400">获得AI作品</h3>
-                    <p class="text-gray-300">几秒内获得高质量的AI生成内容，支持进一步编辑优化</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Get Results</h3>
+                    <p class="text-gray-600 sf-text text-lg">
+                        Receive high-quality, professional content instantly. Refine and customize as needed.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- AIGC Advantages -->
-    <section class="relative z-10 py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-5xl font-bold aigc-title text-center mb-16">为什么选择 98AIGC</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="feature-card p-10 rounded-2xl">
-                    <h3 class="text-2xl font-semibold mb-6 text-indigo-400">🚀 技术领先</h3>
-                    <p class="text-gray-300 text-lg leading-relaxed">
-                        采用最新的GPT、Stable Diffusion等前沿AI模型，确保生成内容的质量和创新性。
-                        持续更新技术栈，始终保持行业领先地位。
+    <!-- Why Choose 98AIGC -->
+    <section class="apple-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Why Choose 98AIGC?
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto sf-text">
+                    Leading the future of AI-generated content with innovation, reliability, and excellence.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="apple-card p-10 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">🚀 Cutting-Edge Technology</h3>
+                    <p class="text-gray-700 sf-text text-lg leading-relaxed">
+                        Powered by the latest GPT models, Stable Diffusion, and proprietary AI algorithms. 
+                        We continuously integrate breakthrough technologies to deliver state-of-the-art results.
                     </p>
                 </div>
-                <div class="feature-card p-10 rounded-2xl">
-                    <h3 class="text-2xl font-semibold mb-6 text-purple-400">💡 简单易用</h3>
-                    <p class="text-gray-300 text-lg leading-relaxed">
-                        直观的用户界面设计，无需专业技术背景即可使用。丰富的模板和预设，
-                        让AI内容生成变得简单高效。
+                
+                <div class="apple-card p-10 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">💡 User-Centric Design</h3>
+                    <p class="text-gray-700 sf-text text-lg leading-relaxed">
+                        Intuitive interfaces inspired by Apple's design philosophy. No technical expertise required – 
+                        anyone can create professional content with ease.
                     </p>
                 </div>
-                <div class="feature-card p-10 rounded-2xl">
-                    <h3 class="text-2xl font-semibold mb-6 text-pink-400">🔒 安全可靠</h3>
-                    <p class="text-gray-300 text-lg leading-relaxed">
-                        严格的数据隐私保护措施，用户内容加密存储。符合国际数据安全标准，
-                        让您安心使用AI创作工具。
+                
+                <div class="apple-card p-10 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">🔒 Privacy & Security</h3>
+                    <p class="text-gray-700 sf-text text-lg leading-relaxed">
+                        Enterprise-grade security with end-to-end encryption. Your data and creations remain 
+                        private and secure at all times.
                     </p>
                 </div>
-                <div class="feature-card p-10 rounded-2xl">
-                    <h3 class="text-2xl font-semibold mb-6 text-green-400">🎯 专业服务</h3>
-                    <p class="text-gray-300 text-lg leading-relaxed">
-                        24/7专业技术支持，丰富的学习资源和社区交流。为企业用户提供定制化
-                        AI解决方案和专属服务。
+                
+                <div class="apple-card p-10 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">🌟 Premium Support</h3>
+                    <p class="text-gray-700 sf-text text-lg leading-relaxed">
+                        24/7 expert support, comprehensive documentation, and active community. 
+                        We're committed to your success with AI-generated content.
                     </p>
                 </div>
             </div>
@@ -339,93 +471,118 @@
     </section>
 
     <!-- Footer -->
-    <footer class="relative z-10 py-16 px-4 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold aigc-title mb-6">98AIGC.com</h2>
-                <p class="text-gray-400 text-lg mb-8">引领AIGC时代，释放创意无限可能</p>
+    <footer class="bg-gray-900 text-white apple-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">AI</span>
+                    </div>
+                    <h2 class="text-3xl font-bold">98AIGC</h2>
+                </div>
+                <p class="text-xl text-gray-300 mb-8 sf-text">
+                    Pioneering the future of AI-generated content
+                </p>
                 
-                <div class="flex justify-center space-x-8 mb-10">
-                    <a href="#platform" class="text-gray-300 hover:text-white transition-colors text-lg">AI平台</a>
-                    <a href="#features" class="text-gray-300 hover:text-white transition-colors text-lg">功能特色</a>
-                    <a href="#about" class="text-gray-300 hover:text-white transition-colors text-lg">关于我们</a>
-                    <a href="#contact" class="text-gray-300 hover:text-white transition-colors text-lg">联系我们</a>
+                <div class="flex justify-center space-x-8 mb-12">
+                    <a href="#platform" class="text-gray-300 hover:text-white transition-colors text-lg">Platform</a>
+                    <a href="#features" class="text-gray-300 hover:text-white transition-colors text-lg">Features</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors text-lg">About</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition-colors text-lg">Contact</a>
                 </div>
                 
                 <div class="border-t border-gray-800 pt-8">
-                    <p class="text-gray-500">© 2025 98AIGC.com - 专业AIGC人工智能内容生成平台 | AI内容创作领域的创新者</p>
-                    <p class="text-gray-600 text-sm mt-2">人工智能 · 内容生成 · 创意无限 · 未来已来</p>
+                    <p class="text-gray-400 sf-text">
+                        © 2025 98AIGC.com - Premier AI-Generated Content Platform | Transforming creativity with artificial intelligence
+                    </p>
+                    <p class="text-gray-500 text-sm mt-2 sf-text">
+                        AIGC • Artificial Intelligence • Content Generation • Creative Technology
+                    </p>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // 平滑滚动导航
+        // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // 体验按钮功能
-        document.querySelectorAll('.btn-ai').forEach(button => {
+        // Get Started button functionality
+        document.querySelectorAll('.apple-btn').forEach(button => {
             button.addEventListener('click', function() {
-                const iframe = document.querySelector('iframe');
-                if (iframe) {
-                    iframe.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'center'
-                    });
+                if (this.textContent.includes('Get Started') || this.textContent.includes('Explore')) {
+                    const iframe = document.querySelector('iframe');
+                    if (iframe) {
+                        iframe.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                    }
                 }
             });
         });
 
-        // iframe 加载优化
+        // Animate statistics on scroll
+        function animateStats() {
+            const stats = document.querySelectorAll('.stats-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const text = target.textContent;
+                        const number = parseInt(text.replace(/[^0-9]/g, ''));
+                        const suffix = text.replace(/[0-9]/g, '');
+                        
+                        let current = 0;
+                        const increment = number / 60;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= number) {
+                                current = number;
+                                clearInterval(timer);
+                            }
+                            target.textContent = Math.floor(current) + suffix;
+                        }, 50);
+                        
+                        observer.unobserve(target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            stats.forEach(stat => observer.observe(stat));
+        }
+
+        // Initialize animations
+        window.addEventListener('load', animateStats);
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('button:contains("Menu")');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                // Add mobile menu functionality here
+                console.log('Mobile menu clicked');
+            });
+        }
+
+        // Add loading state for iframe
         const iframe = document.querySelector('iframe');
         if (iframe) {
             iframe.addEventListener('load', function() {
                 this.style.opacity = '1';
             });
         }
-
-        // 统计数字动画效果
-        function animateCounter(element, target) {
-            let current = 0;
-            const increment = target / 100;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                element.textContent = Math.floor(current).toLocaleString() + '+';
-            }, 20);
-        }
-
-        // 页面加载时启动动画
-        window.addEventListener('load', () => {
-            const counters = document.querySelectorAll('.stats-number');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const text = entry.target.textContent;
-                        const number = parseInt(text.replace(/[^0-9]/g, ''));
-                        animateCounter(entry.target, number);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            });
-            
-            counters.forEach(counter => observer.observe(counter));
-        });
     </script>
 </body>
 </html>
